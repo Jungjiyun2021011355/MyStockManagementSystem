@@ -10,9 +10,10 @@ public class MyStockManagementSystem3 {
 
         StockSimulator ss = new StockSimulator();
 		
-		num = input.nextInt();
-		input.nextLine();
 		
+    	num = input.nextInt();
+		input.nextLine();
+        
 		while (num != 6) {
 			System.out.println("*** Stock managementSystem Menu ***");
 			System.out.println("1. open my stock list: ");
@@ -23,6 +24,8 @@ public class MyStockManagementSystem3 {
 			System.out.println("6. exit");
 			System.out.print("Select one number between 1-6: ");
 
+		
+			
 			switch(num) {
 			case 1:
 				System.out.print("welcome to visit my stock list");

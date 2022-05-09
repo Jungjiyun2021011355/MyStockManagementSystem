@@ -1,48 +1,50 @@
-package week5;
+package week6H.W;
 import java.util.Scanner;
 public class StockSimulator {
-	Scanner input = new Scanner(System.in);
-	Stocklist[] sl = new Stocklist[100];
-	
-	int i = 0;
-	
-	public void Add() {
-		System.out.println("Enter a Name");
-		sl[i].setName(input.next());
-		System.out.println("Enter a ID");
-		sl[i].setID(input.next());
-		System.out.println("Enter a data");
-		sl[i].setData(input.next());
-		this.i++;
-	}
-	
-	public void delete() {
-		System.out.println("Enter i(index) to delete");
-		int j = input.nextInt();
-		sl[j].setName(null);
-		sl[j].setID(null);
-		sl[j].setData(null);
-	}
-	
-	public void edit() {
-		System.out.println("Enter i(index) to edit");
-		int j = input.nextInt();
-		System.out.println("Enter a Name");
-		sl[j].setName(input.next());
-		System.out.println("Enter a ID");
-		sl[j].setID(input.next());
-		System.out.println("Enter a data");
-		sl[j].setData(input.next());
-	}
-	
-	public void view() {
-		for(int k = 0; k < i; k++) {
-			if (!sl[k].getName().equals(null)) {
-				System.out.println("Stock name is " + sl[k].getName());
-				System.out.println("Stock ID is " + sl[k].getID());
-				System.out.println("Stock data is " + sl[k].getData());
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		Menu m = new Menu();
+		
+		
+		
+		
+		
+		int num = input.nextInt();
+		
+		
+		while (num != 6) {
+			System.out.println("*** Stock managementSystem Menu ***");
+			System.out.println("1. open my stock list: ");
+			System.out.println("2. Add my stocks: ");
+			System.out.println("3. view my stocks: ");
+			System.out.println("4. delete my stocks: ");
+			System.out.println("5. edit my stock list: ");
+			System.out.println("6. exit");
+			System.out.print("Select one number between 1-6: ");
+			
+			int i = input.nextInt();
+			
+			switch(i) {
+			
+			case 1:
+			    System.out.println("Welcome to visit");
+			case 2: 
+				m.add();
+				break;
+			case 3: 
+				m.delete();
+				break;
+			case 4: 
+				m.edit(null, null, null);
+				break;
+			case 5: 
+				m.view();
+				break;
+			default:
+				break;
 			}
 		}
+			
 	}
-
-}
+}         

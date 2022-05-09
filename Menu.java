@@ -1,9 +1,9 @@
 package week6H.W;
 
 public abstract class Menu implements Stock {
-	String Name;
-	String ID;
-	String Data;
+	private String Name;
+	private String ID;
+	private String Data;
 	
 	Menu() {
 	}
@@ -28,7 +28,7 @@ public abstract class Menu implements Stock {
 	public String getData() {
 		return Data;
 	}
-	
+	public abstract void add();
 	public abstract void delete();
 	public abstract void edit(String newName, String newID, String newData);
 	public abstract void view();

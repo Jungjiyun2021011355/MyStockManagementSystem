@@ -1,6 +1,8 @@
 package week6H.W;
 
 public interface Stock {
-	public abstract void add();
+	public abstract String getName();
+	public abstract String getID();
+	public abstract String getData();
 
 }

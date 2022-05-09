@@ -1,16 +1,20 @@
 package week6H.W;
 import java.util.Scanner;
-public abstract class Menusimulator extends Menu {
+public class Menusimulator extends Menu {
 	Scanner input = new Scanner(System.in);
 	
 	Menu mn []= new Menu[100];
-
 	
 	public void add() {
-		while(Name.equals(null)) {
-			Name = input.next();
-		    ID = input.next();
-			Data = input.nextLine();
+		while(input.hasNext()) {
+			int i = 0;
+			String Name = input.next();
+			mn[i].setName(Name);
+		    String ID = input.next();
+		    mn[i].setID(ID);
+			String Data = input.nextLine();
+			mn[i].setData(Data);
+			i++;	
 		}
 	}
 	public void delete() {
@@ -36,9 +40,9 @@ public abstract class Menusimulator extends Menu {
 				break;
 			}
 			else {
-				System.out.println("주식 이름: " + this.Name);
-				System.out.println("주식 아이디: " + this.ID);
-				System.out.println("주식 데이터: " + this.Data);
+				System.out.println("주식 이름: " + mn[i].getName());
+				System.out.println("주식 아이디: " + mn[i].getID());
+				System.out.println("주식 데이터: " + mn[i].getData());
 			}
 		}
 	}

@@ -4,7 +4,7 @@ public class StockSimulator {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
-		Menu m = new Menu();
+		Menu m = new Menusimulator();
 		
 		
 		
@@ -18,7 +18,7 @@ public class StockSimulator {
 			System.out.println("1. open my stock list: ");
 			System.out.println("2. Add my stocks: ");
 			System.out.println("3. view my stocks: ");
-			System.out.println("4. delete my stocks: ");
+		 	System.out.println("4. delete my stocks: ");
 			System.out.println("5. edit my stock list: ");
 			System.out.println("6. exit");
 			System.out.print("Select one number between 1-6: ");
@@ -29,6 +29,7 @@ public class StockSimulator {
 			
 			case 1:
 			    System.out.println("Welcome to visit");
+			    break;
 			case 2: 
 				m.add();
 				break;

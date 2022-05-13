@@ -1,8 +1,9 @@
 package week6H.W;
 
 public interface Stock {
-	public abstract String getName();
-	public abstract String getID();
-	public abstract String getData();
+	public abstract void add(int count);
+	public abstract void delete();
+	public abstract void edit(String newName, String newID, String newData);
+	public abstract void view();
 
 }

@@ -1,11 +1,15 @@
-package week6H.W;
+package week7;
 import java.util.Scanner;
 
 public class Menu extends StockInformation implements Stock{
 Scanner input = new Scanner(System.in);
 int count;
+
 	public void add(int count) {
+		SetConfinement cc = new SetConfinement();
+		
 		for(int i = 0; i < 100; i++) {
+			
 			System.out.print((i+1) + "번째 주식 이름을 입력하시오");
 			String Name = input.nextLine();
 			super.setName(Name, i);
@@ -23,15 +27,34 @@ int count;
 		    
 		    count++;
 		    this.count = count;
+		    try {
+		    	cc.Count(count);
+		    }catch(Exception e) {
+		    	System.out.println("저장가능한 배열의 개수를 초과했습니다.");
+		    }
 		}
 	    System.out.println("정상적으로 저장되었습니다");
 	}
+	
 	public void delete() {
-		int i = input.nextInt();
+		ViewConfinement vc = new ViewConfinement();
+		
+		try {
+			vc.Count(count);
+		}catch (Exception e) {
+			System.out.println("저장된 정보가 없습니다.");
+		}
+		try { 
+			int i = input.nextInt();
+		
 	    super.setName(null, i);
 		super.setID(null, i);
 		super.setData(null, i);
 		System.out.println("정상적으로 삭제되었습니다");
+		}catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("전체 인덱스 값보다 큰 값으로 접근");
+			
+		}
 	}
 	public void edit(String newName, String newID, String newData) {
 		int i = input.nextInt();
@@ -51,6 +74,12 @@ int count;
 		System.out.println("정상적으로 편집되었습니다");
 	}
 	public void view() {
+	    ViewConfinement vc = new ViewConfinement();
+		try {
+			vc.Count(count);
+		}catch (Exception e) {
+			System.out.println("저장된 정보가 없습니다.");
+		}
 		for(int i = 0; i < count; i++) {
 			System.out.println("주식 이름: " + super.getName(i));
 			System.out.println("주식 아이디: " + super.getID(i));
@@ -58,5 +87,22 @@ int count;
 			System.out.println("-------------------------");
 		}
 		System.out.println("정상적으로 출력되었습니다");
+	}
+}
+
+class SetConfinement {
+	public SetConfinement() {}
+	public void Count(int num) throws Exception{
+		if(num > 100) {
+			throw new Exception();
+		}
+	}
+}
+class ViewConfinement{
+	public ViewConfinement() {}
+	public void Count(int num) throws Exception{
+		if(num == 0) {
+			throw new Exception();
+		}
 	}
 }

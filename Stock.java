@@ -1,4 +1,4 @@
-package week6H.W;
+package week7;
 
 public interface Stock {
 	public abstract void add(int count);

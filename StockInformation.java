@@ -1,4 +1,4 @@
-package week6H.W;
+package week7;
 import java.util.Scanner;
 public abstract class StockInformation implements Stock {
 	Scanner input = new Scanner(System.in);

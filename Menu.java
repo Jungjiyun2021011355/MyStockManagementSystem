@@ -6,7 +6,6 @@ Scanner input = new Scanner(System.in);
 int count;
 
 	public void add(int count) {
-		SetConfinement cc = new SetConfinement();
 		
 		for(int i = 0; i < 100; i++) {
 			
@@ -27,11 +26,6 @@ int count;
 		    
 		    count++;
 		    this.count = count;
-		    try {
-		    	cc.Count(count);
-		    }catch(Exception e) {
-		    	System.out.println("저장가능한 배열의 개수를 초과했습니다.");
-		    }
 		}
 	    System.out.println("정상적으로 저장되었습니다");
 	}
@@ -93,7 +87,7 @@ int count;
 class SetConfinement {
 	public SetConfinement() {}
 	public void Count(int num) throws Exception{
-		if(num > 100) {
+		if(num > 10) {
 			throw new Exception();
 		}
 	}

@@ -18,9 +18,9 @@ public class ManagementSystem {
 				System.out.println("*** Stock managementSystem Menu ***");
 				System.out.println("1. open my stock list: ");
 				System.out.println("2. Add my stocks: ");
-				System.out.println("3. view my stocks: ");
-			 	System.out.println("4. delete my stocks: ");
-				System.out.println("5. edit my stock list: ");
+			 	System.out.println("3. delete my stocks: ");
+				System.out.println("4. edit my stock list: ");
+				System.out.println("5. view my stocks: ");
 				System.out.println("6. exit");
 				System.out.print("Select one number between 1-6: ");
 				

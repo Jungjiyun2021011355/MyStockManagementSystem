@@ -3,9 +3,9 @@ import java.util.Scanner;
 public abstract class StockInformation implements Stock {
 	Scanner input = new Scanner(System.in);
 	
-	private String Name[] = new String[100];
-	private String ID[] = new String[100];
-	private String Data[] = new String[100];
+	private String Name[] = new String[10];
+	private String ID[] = new String[10];
+	private String Data[] = new String[10];
 
 	public void setName(String Name, int i) {
 		this.Name[i] = Name;

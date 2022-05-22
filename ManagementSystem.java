@@ -1,19 +1,33 @@
-package week7;
-import java.util.Scanner;
-import java.util.InputMismatchException;
+package week8;
+import java.util.*;  
+import java.text.SimpleDateFormat;
+import java.io.*;
 public class ManagementSystem {
 	public static void main(String[] args) {
 		NumberConfinement nc = new NumberConfinement();
-		
 		Scanner input = new Scanner(System.in);
+		Date date = new Date();
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Menu m = new Menu();
 		
-		Menu m = new Menu();		
-		
-		try {
+	    try {
+	    	FileOutputStream timefile = new FileOutputStream("logFile.txt", true);
+    	
+		    timefile.write(format.format(date).getBytes());
+	    	
+	        timefile.close();
+	    	
+	    }catch(IOException e) {
+	    	System.out.println(e.getMessage());
+	    }
+	    try {
+	    	FileWriter file = new FileWriter("logFile.txt", true);
+
+
 			int num = input.nextInt();
 			
 			nc.numc(num);
-			
+		    
 			while (num != 6) {
 				System.out.println("*** Stock managementSystem Menu ***");
 				System.out.println("1. open my stock list: ");
@@ -26,35 +40,45 @@ public class ManagementSystem {
 				
 				try {
 					int i = input.nextInt();
+					
+				    file.write("메뉴 번호 입력: " + i + "\n");
+
 					nc.numc(i);
 		
 					switch(i) {
 					
 					case 1:
 					    System.out.println("Welcome to visit");
+
 					    break;
 					case 2: 
 						m.add(0);
+
 						break;
 					case 3: 
 						m.delete();
+
 						break;
 					case 4: 
 						m.edit(null, null, null);
+
 						break;
 					case 5: 
 						m.view();
+
 						break;
-					default:
+					case 6:
 						break;
 					}
+					file.close();
+					
 				}catch (InputMismatchException e) {
 					System.out.println("숫자를 입력해주세요");
 					break;
 				}catch (Exception e) {
 					System.out.println("1부터 6사이의 정수를 입력해주세요");
 					break;
-				}
+			    }
 			}
 		}catch (InputMismatchException e) {
 			System.out.println("숫자를 입력해주세요");	
@@ -71,5 +95,5 @@ class NumberConfinement{
 		else {
 			throw new Exception();
 		}
-	}	
-}      
+	}
+}
